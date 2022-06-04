@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js"></script>
+    <title>Document</title>
+</head>
+<body onload="javascript:window_onload()">
+    <video src="../static/img/tmp.mp4" controls width="1000px" height="1000px"></video>
+</body>
+</html>
+
+<script lang="javascript">
+    function window_onload(){
+        setTimeout('go_url()',2000)  // 5초후 go_url() 함수를 호출한다.
+    }
+
+    function go_url(){
+        location.href="first"  // 페이지 이동...
+    }
+</script>
+

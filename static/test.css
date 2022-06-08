@@ -43,46 +43,81 @@ html, body {
 
 .lt-box{
     position:absolute;
-    top:80%;
-    left:5%;
-    background-color: red;
+    top:10%;
+    left:10%;
+    background-color: black;
     width: 100px;
     height: 100px;
     animation-name: lt-box;
     animation-iteration-count: infinite;
-    /*animation-duration: 143ms; //7Hz*/
-    /*animation-duration: 333ms; //3Hz*/
-    /*animation-duration: 200ms; //5Hz*/
-    animation-duration: 91ms; //11Hz
+    animation-duration: 91ms;
 }
 
 .lt-box-center{
     position: absolute;
-    top: 120%;
-    left: 5%;
+    top: 50%;
+    left: -50%;
+    right: 30%;
     font-size: 50px;
 }
 
 .rt-box{
     position:absolute;
-    top:80%;
+    top:10%;
     left: 40%;
     right:10%;
-    background-color: blue;
+    background-color: black;
     width: 100px;
     height: 100px;
     animation-name: rt-box;
     animation-iteration-count: infinite;
-    /*animation-duration: 91ms; //11Hz*/
-    /*animation-duration: 200ms; //5Hz*/
-    /*animation-duration: 143ms; //7Hz*/
-    animation-duration: 77ms; //13Hz
+    animation-duration: 77ms;
 }
 
 .rt-box-center{
     position: absolute;
-    top: 120%;
-    right: 50%;
+    top: 50%;
+    right: 20%;
+    font-size: 50px;
+}
+
+.lb-box{
+    position:absolute;
+    bottom: 30%;
+    left:45%;
+    background-color: black;
+    /* background: linear-gradient(#fb3 50%, #5ba 50%);
+    background-size: 100% 30px; */
+    width: 100px;
+    height: 100px;    
+    animation-name: lb-box;
+    animation-iteration-count: infinite;
+    animation-duration: 66ms;
+}
+
+.lb-box-center{
+    position: absolute;
+    bottom: 50%;
+    left: 10%;
+    font-size: 50px;
+}
+
+.rb-box{
+    position:absolute;
+    bottom: 30%;
+    right:45%;
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    animation-name: rb-box;
+    animation-iteration-count: infinite;
+    animation-duration: 59ms;
+}
+
+.rb-box-center{
+    position: absolute;
+    bottom: 50%;
+    right: 10%;
     font-size: 50px;
 }
 
@@ -106,6 +141,22 @@ html, body {
     }
 }
 @keyframes rt-box {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+@keyframes lb-box {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+@keyframes rb-box {
     0% {
       opacity: 0;
     }

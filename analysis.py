@@ -1,10 +1,10 @@
-import numpy as np
-import pandas as pd
 import datetime as dt
-
 import time
-import load_data
+
+import pandas as pd
+
 import FindBlink
+import load_data
 
 
 def analysis():
@@ -17,10 +17,11 @@ def analysis():
     load_data.loadRawdata(path)
 
     path_raw = 'C:/MAVE_RawData/2022-06-10_오후 2_29/Biomarkers.txt'  # 파일 경로
-    path_bio = path + '/Biomarkers.txt'
+    path_bio = 'C:/MAVE_RawData/' + t_date + '/Biomarkers.txt'
 
     while (1):
-        bio = pd.read_csv(path_raw, sep="\t", engine='python', encoding="cp949")
+        bio = pd.read_csv(path_bio, delimiter='\t', encoding='cp949')
+        print(bio)
         theta = bio.loc[:, 'Fp1_Theta(%)']
         if FindBlink.find_blink(theta) != 0:
             blink_index = FindBlink.find_blink(theta)

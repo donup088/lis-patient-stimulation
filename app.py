@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template
 
+from analysis import analysis
+
 app = Flask(__name__)
 
 
@@ -36,9 +38,10 @@ def test4():
 
 @app.route('/analysis')
 def test5():
-    return {"result": {
-        'test': 'test'
-    }}
+    print('데이터 분석!')
+    result = analysis()
+    result = 1
+    return {"result": result}
 
 
 if __name__ == '__main__':

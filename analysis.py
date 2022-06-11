@@ -12,20 +12,20 @@ def analysis():
     # 파일 실시간으로 받아오기
     now = dt.datetime.now()
     t_date = load_data.creat_Path(now)
+    print(t_date)
     path = 'C:/MAVE_RawData/' + t_date
-    print(path)
-    load_data.loadRawdata(path)
 
-    path_raw = 'C:/MAVE_RawData/2022-06-10_오후 2_29/Biomarkers.txt'  # 파일 경로
+    path_raw = 'C:/MAVE_RawData/' + t_date + '/Rawdata.txt'  # 파일 경로
     path_bio = 'C:/MAVE_RawData/' + t_date + '/Biomarkers.txt'
-
-    while (1):
-        bio = pd.read_csv(path_bio, delimiter='\t', encoding='cp949')
-        print(bio)
-        theta = bio.loc[:, 'Fp1_Theta(%)']
-        if FindBlink.find_blink(theta) != 0:
-            blink_index = FindBlink.find_blink(theta)
-            break
+    while 1:
+        temp = pd.read_csv(path_raw, delimiter='\t', encoding='cp949')
+        # theta = bio.loc[:, 'Fp1_Theta(%)']
+        data = temp.loc[:, 'EEG_Fp1']
+        print('a')
+        print(data)
+        result = FindBlink.find_blink(data)
+        if result != 0:
+            return [result, t_date]
 
     # 눈깜박임 감지 알려주기!-> 휴식 화면 ㄱㄱ
     # 30초동안

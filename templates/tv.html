@@ -19,16 +19,20 @@
 <body>
 <video src="../static/img/tmp.mp4" controls width="1000px" height="1000px"></video>
 <script>
-     setTimeout(()=>{
+    setTimeout(() => {
         $.ajax({
             type: 'GET',
-            url: 'http://127.0.0.1:5000/analysis'
+            url: 'http://127.0.0.1:5000/analysis',
+            success: function (data) {
+                console.log(data)
+                if (data.result != 0) {
+                    window.location.href = 'http://127.0.0.1:5000/rest?idx=' + data.result.idx + '&date=' + data.result.date;
+                }
+            }
         })
-        .then((res)=>
-            console.log(res)
-        )
-        .catch((e)=> {});
-      }, 3000);
+            .catch((e) => {
+            });
+    }, 3000);
 </script>
 </body>
 </html>

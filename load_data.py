@@ -42,27 +42,3 @@ def creat_Path(now):
     # print(t_date)
     return t_date
 
-
-def loadRawdata(path):
-    # print('raw thread')
-    global raw_time
-    global raw_value
-    global raw
-    try:
-        #     path = 'C:/MAVE_RawData/2021-06-05_오후 5_18/Rawdata.txt'
-        # path2 = 'C:/MAVE_RawData/오재무/2021-06-04_오후 5_52/Rawdata.txt'
-        #     print(path)
-        temp = pd.read_csv(path, delimiter='\t', encoding='cp949')
-        # temp2 = pd.read_csv(path2,delimiter='\t',encoding='cp949')
-        t_fp1 = temp['Time']
-        e_fp1 = temp['EEG_Fp1']
-        # t_fp2 = temp2['Time']
-        # e_fp2 = temp2['EEG_Fp1']
-
-        raw_time = t_fp1
-        raw_value = e_fp1
-        raw = temp
-
-    except TypeError:
-        print("지정된 경로에 파일이 없습니다.")
-        pass

@@ -16,11 +16,11 @@
 <div class="box-wrapper">
     <div class="box">
         <div class="left-wrapper">
-            <img src="../static/img/check.jpg" class="left" width="400px" height="400px">
+            <img src="../static/img/bc.PNG" class="left" width="400px" height="400px">
             <div class="left-text">도움</div>
         </div>
         <div class="right-wrapper">
-            <img src="../static/img/check.jpg" class="right" width="400px" height="400px">
+            <img src="../static/img/rc.PNG" class="right" width="400px" height="400px">
             <div class="right-text">TV</div>
         </div>
     </div>
@@ -35,13 +35,18 @@
         const searchParams = new URLSearchParams(location.search);
         $.ajax({
             type: 'GET',
-            url: 'http://127.0.0.1:5000/ssvep?idx='+searchParams.get('idx')+'&date='+searchParams.get('date'),
+            url: 'http://127.0.0.1:5000/ssvep?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date'),
             success: function (data) {
                 console.log('ssvep')
                 console.log(data)
-                if (data.result != 0) {
-                    window.location.href = 'http://127.0.0.1:5000/rest?idx=' + data.result.idx + '&date=' + data.result.date;
+                if (data.result.hz=== 9) {
+                    window.location.href = 'http://127.0.0.1:5000/rest?idx=' + data.result.idx + '&date=' + data.result.date + '&loc=call';
                 }
+                // TV OFF
+                if (data.result.hz === 11) {
+                    window.location.href = 'http://127.0.0.1:5000/rest?idx=' + data.result.idx + '&date=' + data.result.date + '&loc=tv';
+                }
+
             }
         })
             .catch((e) => {

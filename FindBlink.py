@@ -5,12 +5,12 @@ def find_blink(data):
     print(data, type(data))
     fs = 230
     # data = data.loc[:['EEG_Fp1']]
-    print(data, type(data))
+    # print(data, type(data))
 
     x_new = data.loc[-5*fs:]
-
-    print('-----------------------------')
-    print(x_new, type(x_new))
+    #
+    # print('-----------------------------')
+    # print(x_new, type(x_new))
     # x_new = x
     # print(x_new)
 
@@ -21,7 +21,7 @@ def find_blink(data):
 
     if cnt >= 7:
         # print(peaks[-1])
-        print(peaks)
+        # print(peaks)
         return peaks[-1]
 
     return 0

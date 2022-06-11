@@ -7,7 +7,7 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"
     ></script>
-     <link rel="stylesheet" type="text/css" href="../static/rest.css" />
+    <link rel="stylesheet" type="text/css" href="../static/rest.css"/>
     <title>Title</title>
 </head>
 <body>
@@ -21,7 +21,16 @@
     setTimeout(() => {
             console.log("실행")
             const searchParams = new URLSearchParams(location.search);
-            window.location.href = 'http://127.0.0.1:5000/test4?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date')
+            const loc = searchParams.get('loc')
+            if (loc === 'home') {
+                window.location.href = 'http://127.0.0.1:5000/home?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date');
+            }
+            if (loc === 'tv') {
+                window.location.href = 'http://127.0.0.1:5000/tvcontrol?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date');
+            }
+            if (loc === 'call') {
+                window.location.href = 'http://127.0.0.1:5000/call?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date');
+            }
         },
         30000
     );

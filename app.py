@@ -32,9 +32,19 @@ def test3():
     return render_template('test3.html')
 
 
-@app.route('/test4')
-def test4():
-    return render_template('test4.html')
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+
+@app.route('/tvcontrol')
+def tvcontrol():
+    return render_template('tvcontrol.html')
+
+
+@app.route('/call')
+def call():
+    return render_template('call.html')
 
 
 @app.route('/ssvep')
@@ -48,8 +58,9 @@ def assvep():
     print('ssvep 결과')
     print(result)
     return {"result": {
-        'idx': int(result[0]),
-        'date': result[1]
+        'idx': result[1],
+        'date': date,
+        'hz': result[0]
     }}
 
 

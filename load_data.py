@@ -1,8 +1,4 @@
-import pandas as pd
 import datetime as dt
-import threading
-import time
-import os
 
 now = dt.datetime.now()
 
@@ -39,6 +35,4 @@ def creat_Path(now):
 
     t_date = str(now.year) + '-' + str(t_month) + '-' + str(t_day) + '_' + t_hm
 
-    # print(t_date)
     return t_date
-

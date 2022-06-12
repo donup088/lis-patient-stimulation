@@ -31,8 +31,6 @@ def call():
 def ssvep_analysis():
     idx = request.args.get('idx')
     date = request.args.get('date')
-    print('assvep')
-    print(idx, date)
     result = ssvep(idx, date)
     # result = [1, '2022-06-10_오후 8_55']
     print('ssvep 결과')

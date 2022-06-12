@@ -1,23 +1,20 @@
-from scipy.signal import butter, lfilter
-from sklearn.decomposition import FastICA
 import numpy as np
 import numpy.fft as fft
+from scipy.signal import butter, lfilter
+from sklearn.decomposition import FastICA
 
 
-
-#order: 얼마나 급격하게 신호를 자를지
-#나이퀘스트
-
-def butter_bandpass(lowcut, highcut, fs, order =5):
+def butter_bandpass(lowcut, highcut, fs, order=5):
     nyq = 0.5 * fs
     low = lowcut / nyq
-    high= highcut / nyq
-    b, a = butter(order,[low,high], btype= 'band')
-    return b,a
+    high = highcut / nyq
+    b, a = butter(order, [low, high], btype='band')
+    return b, a
+
 
 def butter_bandpass_filter(data, lowcut, highcut, fs, order=5):
-    b,a = butter_bandpass(lowcut, highcut , fs, order=order)
-    y = lfilter(b,a,data)
+    b, a = butter_bandpass(lowcut, highcut, fs, order=order)
+    y = lfilter(b, a, data)
     return y
 
 
@@ -50,8 +47,8 @@ def calculate_df(fs, length):
     return fs / length
 
 
-def analysis_ssvep(eeg, fs,Hz_1,Hz_2):
+def analysis_ssvep(eeg, fs, Hz_1, Hz_2):
     df = calculate_df(fs, len(eeg))
-    Hz7 = extract_band_power(eeg, df, Hz_1-0.5, Hz_1+0.5)
-    Hz11 = extract_band_power(eeg, df, Hz_2-0.5,Hz_2+0.5)
-    return Hz7, Hz11
+    Hz11 = extract_band_power(eeg, df, Hz_1 - 0.5, Hz_1 + 0.5)
+    Hz17 = extract_band_power(eeg, df, Hz_2 - 0.5, Hz_2 + 0.5)
+    return Hz11, Hz17

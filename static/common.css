@@ -21,7 +21,7 @@ html, body {
 
 .left{
     animation-name: left;
-    animation-duration: 111ms;
+    animation-duration: 91ms;
     animation-iteration-count: infinite;
 }
 
@@ -33,7 +33,7 @@ html, body {
 
 .right{
     animation-name: right;
-    animation-duration: 91ms;
+    animation-duration: 59ms;
     animation-iteration-count: infinite;
 }
 

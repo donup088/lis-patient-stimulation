@@ -17,7 +17,7 @@ def potential(raw, index_s, index_e):
     fp1_ssvep = eeg_n[index_s:index_e, 0]  # 시작 시점 인덱스
 
     # print(fp1_ssvep)
-    Hz7_fp1, Hz13_fp1 = preprocessing.analysis_ssvep(fp1_ssvep, fs, 9, 11)
+    Hz7_fp1, Hz13_fp1 = preprocessing.analysis_ssvep(fp1_ssvep, fs, 11, 17)
     return Hz7_fp1, Hz13_fp1
 
 
@@ -27,9 +27,9 @@ def what_u_see(r_7, r_13, sti_7, sti_13):
     print('see')
     print(diff_7, diff_13)
     if diff_7 - diff_13 > 0:
-        return 9  # 7변화가 더 크다
+        return 11  # 7변화가 더 크다
     else:
-        return 11  # 13변화가 더 크다
+        return 17  # 13변화가 더 크다
 
 #
 # def potential_compare(raw,index_s, fs=250):

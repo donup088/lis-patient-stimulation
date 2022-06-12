@@ -14,26 +14,46 @@
 
 <div class="rest-container">
     <img src="../static/img/rest.jpg" class="rest-img">
-    <p class="rest-text">30초 동안 휴식을 취해주세요.</p>
+    <p class="rest-text" id="text"></p>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("fdsfasdfasdf")
+        const searchParams = new URLSearchParams(location.search);
+        const loc = searchParams.get('loc')
+        console.log(loc)
+        if (loc === 'home') {
+            console.log('home!!!!!!!!!!!!!!!')
+            $('#text').text('30초 휴식후 TV,도움 자극 화면으로 넘어갑니다.');
+        }
+        if (loc === 'tv') {
+            $('#text').text('30초 휴식후 TV 자극 화면으로 넘어갑니다.');
+        }
+        if (loc === 'call') {
+            $('#text').text('30초 휴식후 도움 자극 화면으로 넘어갑니다.');
+        }
+        setTimeout(() => {
+                const searchParams = new URLSearchParams(location.search);
+                const loc = searchParams.get('loc')
+                if (loc === 'home') {
+                    window.location.href = 'http://127.0.0.1:5000/home?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date');
+                    $('.rest-text').val('30초 휴식후 TV,도움 자극 화면으로 넘어갑니다.');
+                }
+                if (loc === 'tv') {
+                    window.location.href = 'http://127.0.0.1:5000/tvcontrol?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date');
+                    $('.rest-text').val('30초 휴식후 TV 자극 화면으로 넘어갑니다.');
+                }
+                if (loc === 'call') {
+                    window.location.href = 'http://127.0.0.1:5000/call?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date');
+                    $('.rest-text').val('30초 휴식후 도움 자극 화면으로 넘어갑니다.');
+                }
+            },
+            30000
+        );
 
-<script>
-    setTimeout(() => {
-            const searchParams = new URLSearchParams(location.search);
-            const loc = searchParams.get('loc')
-            if (loc === 'home') {
-                window.location.href = 'http://127.0.0.1:5000/home?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date');
-            }
-            if (loc === 'tv') {
-                window.location.href = 'http://127.0.0.1:5000/tvcontrol?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date');
-            }
-            if (loc === 'call') {
-                window.location.href = 'http://127.0.0.1:5000/call?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date');
-            }
-        },
-        30000
-    );
+    });
+
 </script>
 </body>
 </html>

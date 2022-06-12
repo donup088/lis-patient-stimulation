@@ -26,7 +26,7 @@ def what_u_see(r_7, r_13, sti_7, sti_13):
     diff_13 = sti_13 - r_13
     print('see')
     print(diff_7, diff_13)
-    if diff_7 - diff_13 < 0:
+    if diff_7 - diff_13 > 0:
         return 9  # 7변화가 더 크다
     else:
         return 11  # 13변화가 더 크다

@@ -1,12 +1,22 @@
-.center-wrapper{
-    position:absolute;
-    left:0;
-    width:100%;
-    height:100%;
+html, body {
+    height: 100%;
 }
-.center {
+
+.rest-container {
     position: absolute;
-    top: 40%;
-    left: 20%;
-    font-size: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.rest-img {
+    width: 100%;
+    height: 100%;
+}
+
+.rest-text{
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    font-size: 70px;
+    font-family: -미소M;
 }

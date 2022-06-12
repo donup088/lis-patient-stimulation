@@ -8,28 +8,8 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
+def tv():
     return render_template('tv.html')
-
-
-@app.route('/first')
-def first():
-    return render_template('first.html')
-
-
-@app.route('/test')
-def test():
-    return render_template('test.html')
-
-
-@app.route('/test2')
-def test2():
-    return render_template('test2.html')
-
-
-@app.route('/test3')
-def test3():
-    return render_template('test3.html')
 
 
 @app.route('/home')
@@ -48,7 +28,7 @@ def call():
 
 
 @app.route('/ssvep')
-def assvep():
+def ssvep_analysis():
     idx = request.args.get('idx')
     date = request.args.get('date')
     print('assvep')
@@ -65,7 +45,7 @@ def assvep():
 
 
 @app.route('/analysis')
-def test5():
+def blink_analysis():
     print('데이터 분석!')
     result = analysis()
     # result = [1, '2022-06-10_오후 8_55']
@@ -82,6 +62,46 @@ def rest():
     date = request.args.get('date')
 
     return render_template('rest.html')
+
+
+@app.route('/tvon')
+def tv_on():
+    return render_template('tvon.html')
+
+
+@app.route('/tvoff')
+def tv_off():
+    return render_template('tvoff.html')
+
+
+@app.route('/helper')
+def helper():
+    return render_template('helper.html')
+
+
+@app.route('/doctor')
+def doctor():
+    return render_template('doctor.html')
+
+
+@app.route('/first')
+def first():
+    return render_template('test/first.html')
+
+
+@app.route('/test')
+def test():
+    return render_template('test/test.html')
+
+
+@app.route('/test2')
+def test2():
+    return render_template('test/test2.html')
+
+
+@app.route('/test3')
+def test3():
+    return render_template('test/test3.html')
 
 
 if __name__ == '__main__':

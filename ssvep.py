@@ -30,7 +30,8 @@ def ssvep(idx, date):
     ####################휴식 떄 7Hz, 13Hz
     # blink_time_str = raw.loc[blink_index, 'Time']
     # blink_time = time_str_to_int(blink_time_str)
-
+    print("눈깜박임 순간")
+    print(blink_index)
     # rest_start_index = int_to_index(raw.loc[:, 'Time'], blink_time + 9)
     rest_start_index = blink_index + 10 * fps
     # print(rest_start_index)
@@ -46,6 +47,8 @@ def ssvep(idx, date):
     stimul_start_index = len(raw) - 20 * fps
     # stimul_end_index = int_to_index(raw.loc[:, 'Time'], stimul_start_index + 20)
     stimul_end_index = len(raw)
+    print("자극 끝 순간")
+    print(len(raw))
     sti_7Hz, sti_13Hz = potential(raw, stimul_start_index, stimul_end_index)
     print("stimul Hz")
     print(sti_7Hz, sti_13Hz)

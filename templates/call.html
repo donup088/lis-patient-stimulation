@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/test2.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/common.css"/>
     <script
             src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <title>Call</title>
 </head>
 <body>
 <div class="box-wrapper">
@@ -31,27 +31,22 @@
 </div>
 <script>
     setTimeout(() => {
-        console.log("실행")
         const searchParams = new URLSearchParams(location.search);
         $.ajax({
             type: 'GET',
             url: 'http://127.0.0.1:5000/ssvep?idx=' + searchParams.get('idx') + '&date=' + searchParams.get('date'),
             success: function (data) {
-                console.log('ssvep')
-                console.log(data)
-                //TV ON
-                if (data.result.hz  == 9) {
-                    console.log('보호자를 부릅니다.')
+                if (data.result.hz == 9) {
+                    window.location.href = 'http://127.0.0.1:5000/helper';
                 }
-                // TV OFF
-                if (data.result.hz  == 11) {
-                    console.log('의사를 부릅니다.')
+                if (data.result.hz == 11) {
+                    window.location.href = 'http://127.0.0.1:5000/doctor';
                 }
             }
         })
             .catch((e) => {
             });
-    }, 1000);
+    }, 10);
 </script>
 </body>
 </html>

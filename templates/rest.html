@@ -8,18 +8,18 @@
             crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" type="text/css" href="../static/rest.css"/>
-    <title>Title</title>
+    <title>Rest</title>
 </head>
 <body>
-<div class="center-wrapper">
-    <div class="center">
-        휴식 시간~~~
-    </div>
+
+<div class="rest-container">
+    <img src="../static/img/rest.jpg" class="rest-img">
+    <p class="rest-text">30초 동안 휴식을 취해주세요.</p>
 </div>
+
 
 <script>
     setTimeout(() => {
-            console.log("실행")
             const searchParams = new URLSearchParams(location.search);
             const loc = searchParams.get('loc')
             if (loc === 'home') {
